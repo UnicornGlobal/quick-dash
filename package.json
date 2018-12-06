@@ -2,9 +2,12 @@
   "name": "@unicorn/quick-dash-starter",
   "version": "1.0.0",
   "description": "Starter Project for Quick Dash",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
-    "test": "npm run test"
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "test": "npm run test",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,34 @@
   "bugs": {
     "url": "https://github.com/UnicornGlobal/quick-dash-starter/issues"
   },
-  "homepage": "https://github.com/UnicornGlobal/quick-dash-starter#readme"
+  "homepage": "https://github.com/UnicornGlobal/quick-dash-starter#readme",
+  "dependencies": {
+    "@unicorn/quick-dash": "file:../quick-dash",
+    "@websanova/vue-auth": "^2.21.14-beta",
+    "axios": "^0.18.0",
+    "unicorn-vue-datatable": "^1.2.1",
+    "vee-validate": "^2.1.4",
+    "vue": "^2.5.17",
+    "vue-axios": "^2.1.4",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-svg-loader": "^0.11.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
+  }
 }
