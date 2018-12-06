@@ -1,0 +1,25 @@
+{
+  "name": "@unicorn/quick-dash-starter",
+  "version": "1.0.0",
+  "description": "Starter Project for Quick Dash",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnicornGlobal/quick-dash-starter.git"
+  },
+  "keywords": [
+    "starter",
+    "project",
+    "quick",
+    "dash"
+  ],
+  "author": "Unicorn Global et al",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UnicornGlobal/quick-dash-starter/issues"
+  },
+  "homepage": "https://github.com/UnicornGlobal/quick-dash-starter#readme"
+}
