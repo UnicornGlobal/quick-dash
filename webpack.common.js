@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
+const secrets = require('./config/secrets.env')
 
 module.exports = {
   entry: {
@@ -32,11 +33,12 @@ module.exports = {
     runtimeChunk: 'single'
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Quick Dash Starter Project'
     }),
+    new CleanWebpackPlugin(['dist']),
     new VueLoaderPlugin(),
+    new webpack.EnvironmentPlugin(secrets),
     new webpack.HashedModuleIdsPlugin()
   ],
   module: {
