@@ -117,11 +117,12 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.vue'],
     modules: [
-      path.join(__dirname, 'node_modules')
+      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'node_modules', '@unicorn', 'quick-dash', 'node_modules')
     ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '~': path.join(__dirname, '..', 'src'),
+      '~': path.join(__dirname, 'src'),
       '@': path.join(__dirname, 'node_modules', '@unicorn', 'quick-dash', 'src'),
     }
   }
