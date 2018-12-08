@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import QuickDash from '@unicorn/quick-dash'
-import router from '~/router'
+// import router from '~/router'
 
 async function loader() {
   let element = document.createElement('div')
@@ -27,5 +27,6 @@ async function boot() {
 boot()
 
 Vue.use(QuickDash, {
-  router
+  
+  // router
 })
