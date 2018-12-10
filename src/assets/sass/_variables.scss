@@ -2,14 +2,14 @@
 
 $primary: #d10d10;
 $primary-dark: #a10a10;
-$primary-light: #E1BEE7;
+$primary-light: #f0f0f0;
 $blue-light: rgba(16, 148, 247, 0.2);
 $blue-1: #0c70bc;
 $blue-2: #0f88e3;
 $accent: #4CAF50;
 $icons: #FFFFFF;
 $primary-text: #212121;
-$secondary-text: #757575;
+$secondary-text: #fff;
 $black: #000;
 $divider: #BDBDBD;
 $black: rgb(0, 0, 0);
@@ -35,3 +35,5 @@ $colors-map: (
   success: $success,
   fail: $fail
 );
+
+$border-radius: 0px;

@@ -71,32 +71,42 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
-        options: {
-          svgo: {
-            plugins: [
-              { removeDoctype: true },
-              { removeComments: true },
-              { removeMetadata: true },
-              { removeDesc: true },
-              { removeUselessDefs: true },
-              { removeXMLNS: true },
-              { removeEditorsNSData: true },
-              { removeEmptyAttrs: true },
-              { removeHiddenmElems: true },
-              { removeEmptyText: true },
-              { removeEmptyContainers: true },
-              { minifyStyles: true },
-              { removeUnknownsAndDefaults: true },
-              { removeUselessStrokeAndFill: true },
-              { removeUnusedNS: true },
-              { removeRasterImages: true },
-              { mergePaths: true },
-              { convertShapeToPath: true },
-              { removeScriptElement: true }
-            ]
+        oneOf: [
+          {
+            loader: 'vue-svg-loader',
+            options: {
+              svgo: {
+                plugins: [
+                  { removeDoctype: true },
+                  { removeComments: true },
+                  { removeMetadata: true },
+                  { removeDesc: true },
+                  { removeUselessDefs: true },
+                  { removeXMLNS: true },
+                  { removeEditorsNSData: true },
+                  { removeEmptyAttrs: true },
+                  { removeHiddenmElems: true },
+                  { removeEmptyText: true },
+                  { removeEmptyContainers: true },
+                  { minifyStyles: true },
+                  { removeUnknownsAndDefaults: true },
+                  { removeUselessStrokeAndFill: true },
+                  { removeUnusedNS: true },
+                  { removeRasterImages: true },
+                  { mergePaths: true },
+                  { convertShapeToPath: true },
+                  { removeScriptElement: true }
+                ]
+              }
+            }
+          },
+          {
+            loader: 'file-loader'
+          },
+          {
+            loader: 'url-loader'
           }
-        }
+        ]
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -115,7 +125,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.vue'],
+    extensions: ['*', '.js', '.vue', '.svg'],
     modules: [
       path.join(__dirname, 'node_modules'),
       path.join(__dirname, 'node_modules', '@unicorn', 'quick-dash', 'node_modules')
