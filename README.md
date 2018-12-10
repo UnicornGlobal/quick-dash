@@ -35,6 +35,13 @@ the applications environment variables.
 
 # Usage
 
+## Theme
+
+The `src/assets/sass` folder contains a file that controls the
+applications theme called `_variables.scss`.
+
+Use the provided template to theme your application.
+
 ## 3rd Party Library Configurations
 
 Any `.js` files in the `src/lib` folder will be required when
@@ -103,6 +110,40 @@ instead of `~`.
 
 There is an example file called `CustomComponent.vue` included in
 the `src/components` folder.
+
+## Assets
+
+Custom assets like icons or images get placed in the `src/assets`
+folder and are included e.g. `~/assets/icons/icon.svg`.
+
+The default built in assets are referenced with a `@` instead of
+a `~`.
+
+### Note regarding SVG files
+
+SVGs are included via `vue-svg-loader` and must be imported as
+components.
+
+Example:
+
+```
+// example.vue
+<template>
+  <div>
+    <home-icon></home-icon>
+  </div>
+</template>
+
+<script>
+  import HomeIcon from '~/assets/icons/home.svg`
+
+  export default {
+    components: {
+      HomeIcon
+    }
+  }
+</script>
+```
 
 # Core Components
 
