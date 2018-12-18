@@ -1,19 +1,14 @@
-# quick-dash-starter
+# @unicorns/quick-dash
 
-Starter Project for QuickDash
-
-Includes the base `quick-dash` project via the `package.json`
-file instead of as a fork, making it much easier to roll out
-changes across different projects using this one.
+Quick and Easy Vue Dashboards
 
 Fork this repository to allow your project to benefit from future
 improvements and updates to this starter kit.
 
 # Import Aliases
 
-To import from `quick-dash` package use `@/components/xyx`
-
-To import from your local `src` use `~/components/xyz`
+- To import from `quick-dash` base components use `@/components/xyx`
+- To import from your local `src` use `~/components/xyz`
 
 # Secret Management
 

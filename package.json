@@ -1,8 +1,8 @@
 {
-  "name": "@unicorn/quick-dash-starter",
+  "name": "@unicorn/quick-dash",
   "version": "1.0.0",
-  "description": "Starter Project for Quick Dash",
-  "private": "true",
+  "description": "Quick Dash Starter Project",
+  "private": "false",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UnicornGlobal/quick-dash-starter.git"
+    "url": "git+https://github.com/UnicornGlobal/quick-dash.git"
   },
   "keywords": [
     "starter",
@@ -22,14 +22,13 @@
   "author": "Unicorn Global et al",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/UnicornGlobal/quick-dash-starter/issues"
+    "url": "https://github.com/UnicornGlobal/quick-dash/issues"
   },
-  "homepage": "https://github.com/UnicornGlobal/quick-dash-starter#readme",
+  "homepage": "https://github.com/UnicornGlobal/quick-dash#readme",
   "dependencies": {
-    "@unicorn/quick-dash": "file:../quick-dash",
+    "@unicorns/quick-dash-framework": "^1.0.0",
     "@websanova/vue-auth": "^2.21.14-beta",
     "axios": "^0.18.0",
-    "unicorn-vue-datatable": "^1.2.1",
     "vee-validate": "^2.1.4",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.4",
