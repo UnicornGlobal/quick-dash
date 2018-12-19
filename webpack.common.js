@@ -1,6 +1,6 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const secrets = require('./config/secrets.env')
@@ -8,11 +8,18 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: ['@babel/polyfill', './src/index.js']
   },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
+  },
+  resolveLoader: {
+    alias: {
+      // necessary to to make lang="scss" work in test when using vue-loader's ?inject option
+      // see discussion at https://github.com/vuejs/vue-loader/issues/724
+      'scss-loader': 'sass-loader'
+    }
   },
   optimization: {
     usedExports: true,
@@ -42,13 +49,59 @@ module.exports = {
     new webpack.EnvironmentPlugin(secrets),
     new webpack.HashedModuleIdsPlugin()
   ],
-  externals: [ nodeExternals() ],
+  // externals: [ nodeExternals() ],
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: 'vue-loader'
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [
+          path.resolve('src')
+        ],
+        options: {
+          fix: true
+        }
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        // use: [
+          // {
+            // loader: 'vue-loader'
+            // options: {
+              // transformToRequire: {
+                // video: 'src',
+                // source: 'src',
+                // img: 'src',
+                // image: 'xlink:href'
+              // }
+            // }
+          // },
+          // {
+            // loader: 'istanbul-instrumenter-loader',
+            // options: {
+              // debug: true,
+              // esModules: false
+            // }
+          // }
+          // 'vue-loader',
+          // 'babel-loader'
+        // ],
+        include: [
+          path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+          path.resolve('src')
+        ]
+      },
+      // {
+        // test: /\.js$/,
+        // use: [
+          // 'babel-loader'
+        // ],
+        // include: [
+          // path.resolve('src')
+        // ]
+      // },
       {
         test: /\.(sass|scss|css)$/,
         use: [

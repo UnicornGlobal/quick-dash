@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "test": "mocha-webpack --webpack-config webpack.dev.js --require test/setup.js test/**/*.spec.js",
+    "test": "cross-env BABEL_ENV=test nyc --reporter=lcov --reporter=text mocha-webpack --webpack-config webpack.test.js --require test/setup.js test/**/*.spec.js",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -26,9 +26,10 @@
   },
   "homepage": "https://github.com/UnicornGlobal/quick-dash#readme",
   "dependencies": {
-    "@unicorns/quick-dash-framework": "^2.0.2-alpha",
+    "@unicorns/quick-dash-framework": "^2.0.3-alpha",
     "@websanova/vue-auth": "^2.21.14-beta",
     "axios": "^0.18.0",
+    "eslint-config-vue": "^2.0.2",
     "moment": "^2.23.0",
     "vee-validate": "^2.1.4",
     "vue": "^2.5.17",
@@ -37,17 +38,35 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-preset-vue": "^2.0.2",
     "chai": "^4.2.0",
     "clean-webpack-plugin": "^1.0.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-vue": "^5.0.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
     "jsdom": "^13.1.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
     "mocha-webpack": "2.0.0-beta.0",
     "node-sass": "^4.10.0",
+    "nyc": "^13.1.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
@@ -60,5 +79,17 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js",
+      "src/**/*.vue"
+    ],
+    "instrument": false,
+    "sourceMap": false,
+    "extension": [
+      ".js",
+      ".vue"
+    ]
   }
 }

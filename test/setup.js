@@ -1,3 +1,4 @@
+/* eslint-disable */
 require('jsdom-global')()
 const chai = require('chai')
 global.chai = chai

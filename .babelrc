@@ -1,0 +1,21 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "vue"
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "vue"
+        ]
+      ],
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
+}

@@ -27,6 +27,5 @@ async function boot() {
 boot()
 
 Vue.use(QuickDash, {
-  
   // router
 })

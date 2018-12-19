@@ -15,7 +15,7 @@ describe('CustomComponent.vue', () => {
     expect(wrapper.find('p').text()).to.equal('Custom Property: xxx')
   })
 
-  it('Renders the component', () => {
+  it('Renders configured component', () => {
     let localVue = createLocalVue()
     const wrapper = shallowMount(CustomComponent, {
       localVue,

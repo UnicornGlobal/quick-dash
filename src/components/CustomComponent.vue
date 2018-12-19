@@ -7,20 +7,20 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   h1 {
     color: red;
   }
 </style>
 
 <script>
-export default {
-  name: 'custom-component',
-  props: {
-    custom: {
-      required: false,
-      default: 'xxx'
+  export default {
+    props: {
+      custom: {
+        required: false,
+        type: String,
+        default: 'xxx'
+      }
     }
   }
-}
 </script>
