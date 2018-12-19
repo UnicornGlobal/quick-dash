@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const secrets = require('./config/secrets.env')
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   entry: {
@@ -41,6 +42,7 @@ module.exports = {
     new webpack.EnvironmentPlugin(secrets),
     new webpack.HashedModuleIdsPlugin()
   ],
+  externals: [ nodeExternals() ],
   module: {
     rules: [
       {
@@ -128,12 +130,12 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.svg'],
     modules: [
       path.join(__dirname, 'node_modules'),
-      path.join(__dirname, 'node_modules', '@unicorn', 'quick-dash', 'node_modules')
+      path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'node_modules')
     ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '~': path.join(__dirname, 'src'),
-      '@': path.join(__dirname, 'node_modules', '@unicorn', 'quick-dash', 'src'),
+      '@': path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
     }
   }
 }

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import QuickDash from '@unicorn/quick-dash'
+import QuickDash from '@unicorns/quick-dash-framework'
 // import router from '~/router'
 
 async function loader() {

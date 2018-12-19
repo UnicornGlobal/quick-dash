@@ -144,12 +144,12 @@ Example:
 
 ## Data Table
 
-You always need tables, and `@unicorn/quick-dash` uses
-`@unicorn/data-table` internally.
+You always need tables, and `@unicorns/quick-dash` uses
+`@unicorns/data-table` internally.
 
 ## Toast
 
-Toasty toast is provided by `@unicorn/toaster` allowing you to
+Toasty toast is provided by `@unicorns/toaster` allowing you to
 provide quick an easy feedback.
 
 Simply call `this.$toaster.addToast({options})` and you'll be
@@ -158,7 +158,7 @@ making toast in no time.
 ## Avatars & Initials
 
 Another stock standard feature, included in `quick-dash` via the
-`@unicorn/avatars-or-initials` package.
+`@unicorns/avatars` package.
 
 This allows you to attach a configurable avatar, with a fallback
 to a random colour with an initial.
