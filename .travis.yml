@@ -1,0 +1,64 @@
+dist: xenial
+language: node_js
+node_js:
+  - 10
+services:
+  - mysql
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+cache:
+  directories:
+    - $HOME/.npm
+    - $HOME/.cache
+    - $HOME/.composer/cache/files
+
+stages:
+  - tests
+  - build
+  - name: deploy
+    if: branch = master
+
+# Default steps within each job
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS strong;'
+  - cp config/secrets.env.js.example config/secrets.env.js
+  - git clone "https://github.com/UnicornGlobal/strong-lumen" --branch=master ../strong-lumen
+  - cd ../strong-lumen
+  - cp .env.example .env
+  - cat .env
+  - composer self-update
+  - composer validate --no-check-all --ansi
+  - composer install -n
+  - php artisan migrate
+  - php artisan db:seed
+  - pwd
+  - touch ./storage/logs/lumen.log
+  - sudo chmod 777 ./storage/logs/lumen.log
+  - nohup php -S 127.0.0.1:8000 -t public &
+  - cd -
+install:
+  - npm install
+jobs:
+  include:
+    - stage: tests
+      name: "Unit Tests"
+      script: npm run unit
+      after_success:
+        - codecov test/unit/coverage/lcov.info -t ${CODECOV_TOKEN}
+        - echo "Done"
+    - stage: tests
+      name: "Cypress Tests"
+      script:
+        - nohup npm run dev &
+        - sleep 20
+        - ./scripts/setup_cypress.sh
+        - $(npm bin)/cypress run
+    - stage: build
+      name: "Build"
+      script: npm run build
+    - stage: deploy
+      name: "No Target"
+      before_install: true
+      script: echo Add deployment settings!
