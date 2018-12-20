@@ -44,7 +44,7 @@ jobs:
   include:
     - stage: tests
       name: "Unit Tests"
-      script: npm run unit
+      script: npm run test
       after_success:
         - codecov test/unit/coverage/lcov.info -t ${CODECOV_TOKEN}
         - echo "Done"
@@ -61,4 +61,4 @@ jobs:
     - stage: deploy
       name: "No Target"
       before_install: true
-      script: echo Add deployment settings!
+      script: echo "Add deployment settings!"
