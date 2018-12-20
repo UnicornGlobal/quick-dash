@@ -1,44 +1,89 @@
 const path = require('path')
-const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const nodeExternals = require('webpack-node-externals')
 
-module.exports = merge(common, {
+const config = {
   mode: 'development',
-  devtool: 'inline-cheap-module-source-map',
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-    }
-  },
   module: {
     rules: [
       {
-        test: /\.(vue|js)$/,
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
         include: [
-          path.resolve('src'),
-          path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src')
+          path.resolve('src')
         ],
-        enforce: 'post',
+        options: {
+          fix: true
+        }
+      },
+      {
+          test: /\.vue$/,
+          use: [
+            'vue-loader'
+          ],
+          include: [
+            path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+            path.resolve('src')
+          ]
+      },
+      {
+          test: /\.js$/,
+          include: [
+            path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+            path.resolve('src')
+          ],
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                rootMode: 'upward'
+              }
+            },
+            {
+              loader: 'istanbul-instrumenter-loader',
+              options: {
+                debug: true,
+                esModules: true
+              }
+            }
+          ]
+      },
+      {
+        test: /\.(sass|scss|css)$/,
         use: [
-          'vue-loader',
-          'babel-loader',
-          // 'istanbul-instrumenter-loader'
+          'vue-style-loader',
+          'css-loader',
           {
-            loader: 'istanbul-instrumenter-loader',
+            loader: 'sass-loader',
             options: {
-              esModules: true
+              data: '@import "_variables.scss";',
+              includePaths: [
+                path.resolve(__dirname, './src/assets/sass')
+              ]
             }
           }
         ]
-      // },
-      // {
-        // test: /\.(js)$/,
-        // include: path.resolve('src'),
-        // use: [
-          // 'babel-loader',
-          // 'istanbul-instrumenter-loader'
-        // ]
-      }
+      },
     ]
+  },
+  // externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  devtool: 'inline-cheap-module-source-map',
+  plugins: [
+    new VueLoaderPlugin()
+  ],
+  resolve: {
+    extensions: ['*', '.js', '.vue', '.svg'],
+    modules: [
+      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'node_modules')
+    ],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '~': path.join(__dirname, 'src'),
+      '@': path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+    }
   }
-})
+}
+
+module.exports = config

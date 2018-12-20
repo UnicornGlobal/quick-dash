@@ -2,6 +2,8 @@ import Vue from 'vue'
 import QuickDash from '@unicorns/quick-dash-framework'
 // import router from '~/router'
 
+Vue.config.productionTip = false
+
 async function loader() {
   let element = document.createElement('div')
 

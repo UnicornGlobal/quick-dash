@@ -4,10 +4,13 @@
       Custom Component!
     </h1>
     <p>Custom Property: {{ custom }}</p>
+    <button @click="click">
+      clicked {{ count }} times
+    </button>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   h1 {
     color: red;
   }
@@ -20,6 +23,16 @@
         required: false,
         type: String,
         default: 'xxx'
+      }
+    },
+    data() {
+      return {
+        count: 0
+      }
+    },
+    methods: {
+      click() {
+        this.count++
       }
     }
   }

@@ -16,8 +16,6 @@ module.exports = {
   },
   resolveLoader: {
     alias: {
-      // necessary to to make lang="scss" work in test when using vue-loader's ?inject option
-      // see discussion at https://github.com/vuejs/vue-loader/issues/724
       'scss-loader': 'sass-loader'
     }
   },
@@ -49,7 +47,6 @@ module.exports = {
     new webpack.EnvironmentPlugin(secrets),
     new webpack.HashedModuleIdsPlugin()
   ],
-  // externals: [ nodeExternals() ],
   module: {
     rules: [
       {
@@ -66,42 +63,21 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        // use: [
-          // {
-            // loader: 'vue-loader'
-            // options: {
-              // transformToRequire: {
-                // video: 'src',
-                // source: 'src',
-                // img: 'src',
-                // image: 'xlink:href'
-              // }
-            // }
-          // },
-          // {
-            // loader: 'istanbul-instrumenter-loader',
-            // options: {
-              // debug: true,
-              // esModules: false
-            // }
-          // }
-          // 'vue-loader',
-          // 'babel-loader'
-        // ],
         include: [
           path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
           path.resolve('src')
         ]
       },
-      // {
-        // test: /\.js$/,
-        // use: [
-          // 'babel-loader'
-        // ],
-        // include: [
-          // path.resolve('src')
-        // ]
-      // },
+      {
+        test: /\.js$/,
+        use: [
+          'babel-loader'
+        ],
+        include: [
+          path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+          path.resolve('src')
+        ]
+      },
       {
         test: /\.(sass|scss|css)$/,
         use: [

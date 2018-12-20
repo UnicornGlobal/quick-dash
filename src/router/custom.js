@@ -1,8 +1,10 @@
+import CustomComponent from '~/components/CustomComponent'
+
 export default [
   {
     name: 'Custom',
     path: '/custom',
-    component: require('~/components/CustomComponent').default,
+    component: CustomComponent,
     meta: {
       main: true,
       label: 'Custom',
