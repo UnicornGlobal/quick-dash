@@ -1,10 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const secrets = require('./config/secrets.env')
-const nodeExternals = require('webpack-node-externals')
+
+console.log('webpack.common')
 
 module.exports = {
   entry: {
@@ -36,13 +36,12 @@ module.exports = {
         }
       }
     },
-    runtimeChunk: 'single'
+    runtimeChunk: 'multiple'
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Quick Dash Starter Project'
     }),
-    new CleanWebpackPlugin(['dist']),
     new VueLoaderPlugin(),
     new webpack.EnvironmentPlugin(secrets),
     new webpack.HashedModuleIdsPlugin()
@@ -71,7 +70,9 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          'babel-loader'
+          {
+            loader: 'babel-loader'
+          },
         ],
         include: [
           path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),

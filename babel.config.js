@@ -4,7 +4,7 @@ module.exports = function (api) {
   return {
     presets: [
       [
-        'vue'
+        '@babel/env'
       ]
     ],
     plugins: [

@@ -1,6 +1,7 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const nodeExternals = require('webpack-node-externals')
+
+console.log('webpack.test')
 
 const config = {
   mode: 'development',
@@ -35,15 +36,11 @@ const config = {
           ],
           use: [
             {
-              loader: 'babel-loader',
-              options: {
-                rootMode: 'upward'
-              }
+              loader: 'babel-loader'
             },
             {
               loader: 'istanbul-instrumenter-loader',
               options: {
-                debug: true,
                 esModules: true
               }
             }
@@ -67,7 +64,6 @@ const config = {
       },
     ]
   },
-  // externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   devtool: 'inline-cheap-module-source-map',
   plugins: [
     new VueLoaderPlugin()
@@ -81,7 +77,7 @@ const config = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '~': path.join(__dirname, 'src'),
-      '@': path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+      '@': path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src')
     }
   }
 }
