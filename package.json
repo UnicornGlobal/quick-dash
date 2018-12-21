@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "test": "cross-env BABEL_ENV=test nyc --reporter=lcov --reporter=text mocha-webpack --webpack-config webpack.test.js --require test/setup.js test/**/*.spec.js",
+    "test": "cross-env BABEL_ENV=test nyc --reporter=lcov --reporter=text --reporter=html mocha-webpack --webpack-config webpack.test.js --require test/setup.js test/**/*.spec.js",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -90,9 +90,10 @@
     "all": true,
     "reporter": [
       "lcov",
+      "html",
       "text-summary"
     ],
-    "instrument": false,
+    "instrument": true,
     "sourceMap": false,
     "extension": [
       ".js",
