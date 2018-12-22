@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
@@ -63,7 +64,7 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         include: [
-          path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+          fs.realpathSync(path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src')),
           path.resolve('src')
         ]
       },
@@ -75,7 +76,7 @@ module.exports = {
           },
         ],
         include: [
-          path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src'),
+          fs.realpathSync(path.join(__dirname, 'node_modules', '@unicorns', 'quick-dash-framework', 'src')),
           path.resolve('src')
         ]
       },
