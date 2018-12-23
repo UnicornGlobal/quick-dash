@@ -1,4 +1,5 @@
 import CustomComponent from '~/components/CustomComponent'
+import icons from '@/icons'
 
 export default [
   {
@@ -8,7 +9,7 @@ export default [
     meta: {
       main: true,
       label: 'Custom',
-      icon: require('@/assets/icons/home.svg').default
+      icon: icons.clock
     }
   }
 ]

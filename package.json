@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/UnicornGlobal/quick-dash#readme",
   "dependencies": {
-    "@unicorns/quick-dash-framework": "^2.0.9-alpha",
+    "@unicorns/quick-dash-framework": "^2.0.10-alpha",
     "@websanova/vue-auth": "^2.21.14-beta",
     "axios": "^0.18.0",
     "eslint-config-vue": "^2.0.2",
