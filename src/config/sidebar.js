@@ -3,5 +3,5 @@ export default {
   open: true,
   position: 'right',
   logout: true,
-  profile: false
+  profile: true
 }
