@@ -9,7 +9,7 @@ export default [
     meta: {
       main: true,
       label: 'Custom',
-      icon: icons.clock
+      icon: icons.info
     }
   }
 ]
