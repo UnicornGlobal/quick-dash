@@ -46,7 +46,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-istanbul": "^5.1.0",
-    "browserslist": "^4.3.6",
+    "browserslist": "^4.6.2",
     "chai": "^4.2.0",
     "clean-webpack-plugin": "^1.0.0",
     "codecov": "^3.1.0",
