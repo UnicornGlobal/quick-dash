@@ -54,11 +54,11 @@
     "cypress": "^3.4.1",
     "eslint": "^5.16.0",
     "eslint-config-vue": "^2.0.2",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-html": "^5.0.0",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-html": "^5.0.5",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-vue": "^5.2.3",
     "file-loader": "^4.2.0",
     "fs": "0.0.1-security",
@@ -78,9 +78,9 @@
     "vue-svg-loader": "^0.11.0",
     "vue-template-compiler": "^2.5.21",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.1.5"
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
   },
   "nyc": {
     "include": [
