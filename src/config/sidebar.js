@@ -1,7 +1,7 @@
 export default {
   enabled: true,
   open: true,
-  position: 'right',
+  position: 'left',
   logout: true,
   profile: true
 }
