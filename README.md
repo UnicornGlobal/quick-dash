@@ -7,8 +7,8 @@ improvements and updates to this starter kit.
 
 # Import Aliases
 
-- To import from `quick-dash` base components use `@/components/xyx`
-- To import from your local `src` use `~/components/xyz`
+  - To import from `quick-dash` base components use `@/components/xyx`
+  - To import from your local `src` use `~/components/xyz`
 
 # Secret Management
 
