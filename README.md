@@ -5,39 +5,39 @@ Quick and Easy Vue Dashboards
 Fork this repository to allow your project to benefit from future
 improvements and updates to this starter kit.
 
-# Import Aliases
+## Import Aliases
 
-- To import from `quick-dash` base components use `@/components/xyx`
-- To import from your local `src` use `~/components/xyz`
+  - To import from `quick-dash` base components use `@/components/xyx`
+  - To import from your local `src` use `~/components/xyz`
 
-# Secret Management
+## Secret Management
 
 Make a copy of the `config/secrets.env.js.example` file and name
 it `config/secrets.env.js` (remove the `.example`) and configure
 the applications environment variables.
 
-# Features
+## Features
 
-* JWT Authentication
-* Dynamic `vue-router` configuration
-* Dynamic `vuex` configuration
-* Dynamic 3rd party library configuration
-* Dynamic SASS variable inclusion and themeing
-* Admin and User roles
-* User and Role management
-* Built in essential components
-* Works with `strong-lumen`
+  - JWT Authentication
+  - Dynamic `vue-router` configuration
+  - Dynamic `vuex` configuration
+  - Dynamic 3rd party library configuration
+  - Dynamic SASS variable inclusion and themeing
+  - Admin and User roles
+  - User and Role management
+  - Built in essential components
+  - Works with `strong-lumen`
 
-# Usage
+## Usage
 
-## Theme
+### Theme
 
 The `src/assets/sass` folder contains a file that controls the
 applications theme called `_variables.scss`.
 
 Use the provided template to theme your application.
 
-## 3rd Party Library Configurations
+### 3rd Party Library Configurations
 
 Any `.js` files in the `src/lib` folder will be required when
 booting your application.
@@ -55,7 +55,7 @@ This is where you do things like `Vue.use('my-library', {})`
 
 *NB* Do _not_ call `Vue.use(VueRouter)` at any time.
 
-## Routes
+### Routes
 
 Quick Dash comes with `vue-router` preinstalled.
 
@@ -73,7 +73,7 @@ sidebar.
 There is an example file called `custom.js` in the `src/router`
 folder.
 
-## Stores
+### Stores
 
 Quick Dash comes with `vuex` preinstalled.
 
@@ -88,7 +88,7 @@ contains `state`, `mutations`, and `getters` properties.
 There is an example file called `custom.js` in the `src/store`
 folder.
 
-## Custom Components
+### Custom Components
 
 You can use the components folder to store your own custom
 components.
@@ -106,7 +106,7 @@ instead of `~`.
 There is an example file called `CustomComponent.vue` included in
 the `src/components` folder.
 
-## Assets
+### Assets
 
 Custom assets like icons or images get placed in the `src/assets`
 folder and are included e.g. `~/assets/icons/icon.svg`.
@@ -114,14 +114,14 @@ folder and are included e.g. `~/assets/icons/icon.svg`.
 The default built in assets are referenced with a `@` instead of
 a `~`.
 
-### Note regarding SVG files
+#### Note regarding SVG files
 
 SVGs are included via `vue-svg-loader` and must be imported as
 components.
 
 Example:
 
-```
+```vue
 // example.vue
 <template>
   <div>
@@ -140,14 +140,14 @@ Example:
 </script>
 ```
 
-# Core Components
+## Core Components
 
-## Data Table
+### Data Table
 
 You always need tables, and `@unicorns/quick-dash` uses
 `@unicorns/data-table` internally.
 
-## Toast
+### Toast
 
 Toasty toast is provided by `@unicorns/toaster` allowing you to
 provide quick an easy feedback.
@@ -155,7 +155,7 @@ provide quick an easy feedback.
 Simply call `this.$toaster.addToast({options})` and you'll be
 making toast in no time.
 
-## Avatars & Initials
+### Avatars & Initials
 
 Another stock standard feature, included in `quick-dash` via the
 `@unicorns/avatars` package.
@@ -163,6 +163,6 @@ Another stock standard feature, included in `quick-dash` via the
 This allows you to attach a configurable avatar, with a fallback
 to a random colour with an initial.
 
-# Roadmap
+## Roadmap
 
 LOTS AND LOTS!

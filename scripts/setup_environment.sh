@@ -6,7 +6,6 @@ function configure() {
     E_REGISTER=$1
     E_DEBUG=$2
     E_API=$3
-    E_STATS=$4
 
     cat > config/secrets.env.js <<EOL
     'use strict'
@@ -21,13 +20,13 @@ EOL
 function config_dev() {
     echo "Configuring for Staging"
 
-    configure ${REGISTRATION_ACCESS_KEY} ${DEBUG_TOKEN} ${API_URL} ${STATS_URL}
+    configure ${REGISTRATION_ACCESS_KEY} ${DEBUG_TOKEN} ${API_URL}
 }
 
 function config_prod() {
     echo "Configuring for Production"
 
-    configure ${LIVE_REGISTRATION_ACCESS_KEY} '' ${LIVE_API_URL} ${LIVE_STATS_URL}
+    configure ${LIVE_REGISTRATION_ACCESS_KEY} '' ${LIVE_API_URL}
 }
 
 if [ "$TRAVIS_BRANCH" == "$DEV_BRANCH" ]; then
