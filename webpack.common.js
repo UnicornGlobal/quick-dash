@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const secrets = require('./config/secrets.env')
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 console.log('webpack.common')
 
@@ -40,6 +42,9 @@ module.exports = {
     runtimeChunk: 'multiple'
   },
   plugins: [
+    new CopyPlugin([
+      { from: 'src/assets/fonts', to: 'fonts' },
+    ]),
     new HtmlWebpackPlugin({
       title: 'Quick Dash Starter Project'
     }),
@@ -125,7 +130,7 @@ module.exports = {
                   { removeUnknownsAndDefaults: true },
                   { removeUselessStrokeAndFill: true },
                   { removeUnusedNS: true },
-                  { removeRasterImages: true },
+                  { removeRasterImages: false },
                   { mergePaths: true },
                   { convertShapeToPath: true },
                   { removeScriptElement: true }
@@ -152,7 +157,9 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000
+          limit: 10000,
+          name: '/[name].[ext]',
+          outputPath: 'dist/'
         }
       }
     ],
